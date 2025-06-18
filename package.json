@@ -10,13 +10,13 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.1.4",
-    "express": "~4.18.2",
+    "express": "^4.21.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "node-fetch": "^3.3.2",
     "nodemon": "^3.0.3",
-    "pug": "~3.0.2",
-    "request": "^2.88.2"
+    "pug": "~3.0.2"
+
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.3.3"

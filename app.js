@@ -40,6 +40,6 @@ app.use(function(err, req, res, next) {
 });
 
 console.log("Server is running 🎉🎉");
-
+app.listen(4000)
 module.exports = app
 

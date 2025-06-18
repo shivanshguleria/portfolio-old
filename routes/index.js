@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const request = require('request')
+
 const path = require('path');
 const app = require('../app.js')
 const packageVersion = require("../package.json");
@@ -19,26 +19,8 @@ let options = {
     'User-agent': "shivanshguleria"
   }
 }
- request.get('https://api.github.com/repos/shivanshguleria/shivanshguleria.ml/git/ref/heads/main',options,function(err,res,body){
-  if(err) {
-    console.log("Request failed")
-  }
-  else if(res.statusCode === 200) {
-  const reqBody = JSON.parse(body)
-  request.get(reqBody.object.url, options, function(err, res,body){
-    if(err) {
-      console.log("Second Request Failed")
-    } else if(res.statusCode === 200) {
-      let reqBody2 = JSON.parse(body).message.split('\n')
-      appVer = reqBody2[0]
-      console.log(appVer)
-    }
-  })
-  } else {
-    console.log("\nCommit Request Failed due to res error [routes/index]")
-  }
-});
-//1  *END*
+
+
 
 //2 Upload new book  *START*
 if(process.env.PORT === "3000"){
@@ -91,11 +73,12 @@ if(process.env.PORT === "3000"){
 
 //GET home page. 
 router.get('/', function(req, res) {
-  res.redirect("https://shivanshguleria.xyz")
-  // res.render('index', {
-  //   title: 'Shivansh Guleria',
-  //   views: views
-  // });
+
+  // res.redirect("https://shivanshguleria.xyz")
+  res.render('index', {
+    title: 'Shivansh Guleria',
+    views: views
+  });
 });
 
 router.get('/web', function(req, res) {
@@ -149,6 +132,70 @@ router.get('/projects',(req, res) => {
   })
 })
 
+router.get("/v3", (req, res) => {
+  res.setHeader("Content-Type", "text/html; charset=utf-8");
+  res.send(`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: Roboto, sans-serif;
+        font-weight: 500;
+        background: #1f1f1f;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        margin: 0;
+      }
+      #main {
+        padding: 0 24px;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+      }
+      h1 {
+        font-size: 4em;
+      }
+      h3 {
+        font-size: 2em;
+      }
+      a {
+        color: #94594f;
+        margin: 15px;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #834f46;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div>
+        <h1>Shivansh Guleria</h1>
+      </div>
+      <div>
+        <h3>Final year student at SRM IST, Chennai</h3>
+        <div>
+          <a href="https://0x10.wiki">Blog</a>
+          <a href="https://shivanshguleria.fly.dev#projects">Projects</a>
+          <a href="https://shivanshguleria.fly.dev/resume">Resume</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>`);
+});
 //GET all misc proojects
 for(let i = 0; i < routes.routes.length; i++) {
 let link = routes.routes[i].link
