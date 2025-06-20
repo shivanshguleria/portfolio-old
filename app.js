@@ -23,6 +23,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 //404
 app.get('*', function(req, res){
+  if(req.path.includes("/v4")) {
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/v4.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section>
+            <h1 class="fault-head">404</h1>
+            Our server had some errors 
+            <br>
+            <br>
+            Issue has been logged
+        </section>
+    </main>
+</body>
+</html>`)
+  }
   res.render('404', {title: 'Not Found'});
 });
 
@@ -32,9 +56,11 @@ app.get('*', function(req, res){
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
+
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
+
   res.status(err.status || 500);
   res.render('error');
 });

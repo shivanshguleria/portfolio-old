@@ -108,7 +108,7 @@ router.get('/test',function(req, res){
 
 //GET resume
 router.get('/resume', function(req, res) {
-  res.sendFile(path.resolve('public/Resume.pdf'));
+  res.send("1")
 });
 
 //GET sitemap
@@ -132,6 +132,304 @@ router.get('/projects',(req, res) => {
   })
 })
 
+router.get("/v4", (req, res) => {
+  res.setHeader("Content-Type", "text/html; charset=utf-8");
+  res.send(`
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>~</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  </head>
+  <style>
+    * {
+
+background-color: black;
+color: aliceblue;
+font-family: "JetBrains Mono", monospace;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
+font-size: 1em;
+--universal-gap: 0px;
+--color: #7BF080;
+scroll-behavior: smooth;
+scroll-padding-block-start: 8rem;
+}
+
+body {
+font-size: 1.25em;
+}
+
+main   {
+margin: 20px auto;
+display: grid;
+grid-template-rows:  30% repeat(auto) 30%;
+grid-template-columns:1;
+width: 80vw;
+gap: var(--universal-gap);
+}
+
+h1 {
+font-size: 4rem;
+margin: 0;
+/* overflow: auto; */
+
+font-weight: bold;
+}
+
+h2 {
+font-size: 2.25rem;
+font-weight: bold;
+}
+a {
+color: var(--color);
+
+}
+
+
+p {
+margin: 10px;
+
+text-align: left;
+}
+.heading {
+
+grid-row: span;
+
+}
+.svg {
+/* height: 10rem; */
+fill: var(--color);
+width: 3rem;
+}
+
+.links {
+place-self: 0.4rem;
+}
+
+
+.skills {
+
+grid-template-areas: auto-fit;
+
+}
+
+.marge {
+grid-area: marge;
+}
+
+.marge1 {
+grid-area: marge1;
+}
+hr {
+width: 80vw;
+}
+
+footer {
+
+padding: 30px;
+
+}
+
+a:hover, a:after {
+color: white;
+text-decoration: underline;
+}
+
+.fault-head {
+font-family: 'Press Start 2P', cursive;
+
+}
+
+
+::selection {
+ background: #7BF080;
+ color: black;
+}
+@media only screen and (max-width: 600px) {
+html {
+    scroll-behavior: smooth;
+    scroll-margin-block: 2ex;
+  }
+main {
+    margin-top: 30%;
+
+}
+.links {
+
+    margin-top: -10px;
+    padding: 7px;
+    border-radius: 10px;
+    background-color:#1e1e1e;
+    
+    z-index: 1;
+
+    position: fixed;
+    top: 10%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 320px;
+    height: fit-content;
+    opacity: 0.9;
+    
+        }
+
+        .a {
+            text-decoration: none;
+            background-color: #1e1e1e;
+            margin: 10px;  
+        }
+
+}
+
+  </style>
+  <body>
+    <main>
+    <a class="a" style="font-size: larger;" href="https://shivanshguleria.xyz">View Latest Version</a>
+    <br />
+        <section class="links">
+          <a class="a" href="#skill-heading">~/skills</a>
+          <a class="a" href="#project-heading">~/projects</a>
+          <a class="a" href="#exp-heading">~/experience</a>
+          <a class="a" href="#writing-heading">~/writings</a>
+          <!-- <a href=""></a> -->
+        </section>
+      <section class="heading">
+        <h1>Shivansh Guleria</h1>
+
+      </section>
+      <section class="icons">
+        <a href="https://github.com/shivanshguleria/"><img class="svg" src="./download.svg" alt="github svg" /></a>
+        <a href="https://www.linkedin.com/in/shivanshguleria/"><img class="svg" src="./l.svg" alt="linkedin svg" /></a>
+      </section>
+      <section class="desc">
+        <p>Hello there!</p>
+        <!-- <p>I am Shivansh Guleria, I am from Mandi, Himachal Pradesh. Currently in second year of Engineering in CS. I am very much interested in Blockchain, AI/Ml.<br> Apart from this I am geek in finance, economics, cryptocurrency. During my free time i like to watch anime, go for a walk.</p>
+      -->
+    <p> I am a skilled software developer with expertise designing, developing, and deploying scalable applications with proficienncy in numerous
+        programming languages and databases, particularly C++, JavaScript, Python, MongoDB, MySQL, and Postgres. Passionate about
+        backend development and deep learning.
+      </p>
+    </section>
+      <section class="skills" >
+        <h2 id="skill-heading" class="marge">~/Skills</h2>
+        <ul class="marge1">
+          <li>Programming Languages & Tools</li>
+          <ul>
+            <li><p>Language- C/C++, Python, JavaScript</p></li>
+            <li><p>Frameworks- ReactJS, NextJS, FastAPI</p></li>
+            <li><p>Database- MySQL, Postgres, MongoDB, Redis</p></li>
+            <li<p>Systems- Linux, Windows</p></li>
+            <li><p>Other- Git, Bash, Docker</p></li>
+          </ul>
+        </ul>
+      </section>
+      <section class="project">
+        <h2 id="project-heading">~/Projects</h2>
+        <ul>
+          <li>
+            <a href="https://smilenshine/">~\smile & shine Dental Care/a>
+            <p>Website created for smile N shine Dental Clinic</p>
+          </li>
+          <li>
+            <a href="https://shortCuts.fly.dev/">~\shortCuts</a>
+            <p>Your go to URL shortner</p>
+          </li>
+          <li>
+            <a href="https://58eb193a4f9217dccd081aa801e3905ca7cc17202ed0f7453bdf69ae25ecff1.space/">~\fileFlow</a>
+            <p>Easily share file across web</p>
+          </li>
+          <li>
+            <a href="https://codefuel.fly.dev/">~\codeFuel</a>
+            <p>Web application to upload courses and get certified</p>
+          </li>
+          <li>
+            <a href="https://loc8r.shivanshguleria.ml/">~\Loc8r</a>
+            <p>
+              MEAN Stack application that helps you find wifi and places to work
+              when you are out
+            </p>
+          </li>
+          <li>
+            <a href="https://github.com/ShivanshGuleria/Get-It-Quick"
+              >~\Get-It-Quick</a
+            >
+            <p>Recommends jobs on basis of resume</p>
+          </li>
+          <li>
+            <a href="/projects">~\Misc</a>
+            <p>Projects Done as part of learning X skill</p>
+          </li>
+        </ul>
+      </section>
+      <section class="exp">
+        <h2 id="exp-heading">~/Experience</h2>
+        <ul>
+          <li>
+            <p>
+              <a  href="https://srmiec.com/"
+                >~\SRM Indian Energy Conference</a
+              >
+            </p>
+            <ul>
+              <li><p>AUG 2022-Aug 2023</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <a
+                
+                href="https://www.linkedin.com/company/aakash-research-labs/"
+                >~\ARL (Aakash Research Lab)</a
+              >
+            </p>
+            <ul>
+              <li><p>July 2022-Sep 2023</p></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section class="blog-accord">
+        <h2 id="writing-heading">~/Writings</h2>
+        <ul>
+            <li>
+                <a href="https://shivasnhguleria.xyz/writings/">~\Migrating Database</a>
+                <div>
+                    <p>22 March 2024</p>
+                    <!-- <p class="context">Conext of entry</p> -->
+                </div>
+            </li>
+            <li>
+                <a href="https://shivasnhguleria.xyz/writings/">~\Auto Link Deletion in shortCuts</a>
+                <div>
+                    <p>22 February 2024</p>
+                    <!-- <p class="context">Conext of entry</p> -->
+                </div>
+            </li>
+        </ul>
+        <a href="https://shivasnhguleria.xyz/writings/">~\more</a>
+      </section>
+      <br>
+      <hr >
+     
+<center>
+    <footer>
+        <a href="mailto:sg@shivanshguleria.xyz">~\Email</a>
+        <a href="/">~\Pgp key</a>
+      </footer>
+</center>
+    </main>
+  </body>
+</html>
+
+`)
+})
 router.get("/v3", (req, res) => {
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.send(`<!doctype html>
