@@ -141,154 +141,11 @@ router.get("/v4", (req, res) => {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>~</title>
-
+<link rel="stylesheet" href="/v4.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   </head>
-  <style>
-    * {
-
-background-color: black;
-color: aliceblue;
-font-family: "JetBrains Mono", monospace;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
-font-size: 1em;
---universal-gap: 0px;
---color: #7BF080;
-scroll-behavior: smooth;
-scroll-padding-block-start: 8rem;
-}
-
-body {
-font-size: 1.25em;
-}
-
-main   {
-margin: 20px auto;
-display: grid;
-grid-template-rows:  30% repeat(auto) 30%;
-grid-template-columns:1;
-width: 80vw;
-gap: var(--universal-gap);
-}
-
-h1 {
-font-size: 4rem;
-margin: 0;
-/* overflow: auto; */
-
-font-weight: bold;
-}
-
-h2 {
-font-size: 2.25rem;
-font-weight: bold;
-}
-a {
-color: var(--color);
-
-}
-
-
-p {
-margin: 10px;
-
-text-align: left;
-}
-.heading {
-
-grid-row: span;
-
-}
-.svg {
-/* height: 10rem; */
-fill: var(--color);
-width: 3rem;
-}
-
-.links {
-place-self: 0.4rem;
-}
-
-
-.skills {
-
-grid-template-areas: auto-fit;
-
-}
-
-.marge {
-grid-area: marge;
-}
-
-.marge1 {
-grid-area: marge1;
-}
-hr {
-width: 80vw;
-}
-
-footer {
-
-padding: 30px;
-
-}
-
-a:hover, a:after {
-color: white;
-text-decoration: underline;
-}
-
-.fault-head {
-font-family: 'Press Start 2P', cursive;
-
-}
-
-
-::selection {
- background: #7BF080;
- color: black;
-}
-@media only screen and (max-width: 600px) {
-html {
-    scroll-behavior: smooth;
-    scroll-margin-block: 2ex;
-  }
-main {
-    margin-top: 30%;
-
-}
-.links {
-
-    margin-top: -10px;
-    padding: 7px;
-    border-radius: 10px;
-    background-color:#1e1e1e;
-    
-    z-index: 1;
-
-    position: fixed;
-    top: 10%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 320px;
-    height: fit-content;
-    opacity: 0.9;
-    
-        }
-
-        .a {
-            text-decoration: none;
-            background-color: #1e1e1e;
-            margin: 10px;  
-        }
-
-}
-
-  </style>
   <body>
     <main>
     <a class="a" style="font-size: larger;" href="https://shivanshguleria.xyz">View Latest Version</a>
@@ -305,8 +162,8 @@ main {
 
       </section>
       <section class="icons">
-        <a href="https://github.com/shivanshguleria/"><img class="svg" src="./download.svg" alt="github svg" /></a>
-        <a href="https://www.linkedin.com/in/shivanshguleria/"><img class="svg" src="./l.svg" alt="linkedin svg" /></a>
+        <a href="https://github.com/shivanshguleria/"><img class="svg" src="/download.svg" alt="github svg" /></a>
+        <a href="https://www.linkedin.com/in/shivanshguleria/"><img class="svg" src="/l.svg" alt="linkedin svg" /></a>
       </section>
       <section class="desc">
         <p>Hello there!</p>

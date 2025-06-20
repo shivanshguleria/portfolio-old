@@ -46,8 +46,10 @@ app.get('*', function(req, res){
     </main>
 </body>
 </html>`)
+  } else {
+    res.render('404', {title: 'Not Found'});
   }
-  res.render('404', {title: 'Not Found'});
+
 });
 
 
